@@ -1,0 +1,173 @@
+<!-- Page Content -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            
+            <!-- sidebar -->
+            <app-instructor-sidebar class="col-xl-3 col-lg-3 theiaStickySidebar"></app-instructor-sidebar>
+            <!-- /Sidebar -->
+            
+            <!-- Instructor Courses -->
+            <div class="col-xl-9 col-lg-9">	
+
+                <div class="settings-widget card-info">
+                    <div class="settings-menu p-0">
+                        <div class="profile-heading">
+                            <h3>Liste des sujets PFE</h3>
+                            <p>okkkk</p>
+                            <button type="button" class="btn btn-primary" (click)="openAddModal()">Ajouter un Sujet PFE</button>
+                        </div>
+                        <div class="checkout-form pb-0">
+                            
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="enroll-courses">
+                                    <div class="row">
+
+                                        <!-- Course Grid -->
+                                        <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of sujets">
+                                            <div class="course-box flex-fill">
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <a >
+                                                            <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3 class="title instructor-text"><a> {{sujet.titre}}</a></h3>
+                                                        <div class="course-info d-flex align-items-center">    
+                                                        </div>
+                                                        <div class="course-edit-btn d-flex align-items-center justify-content-between">
+                                                            <a href="javascript:void(0);" (click)="openEditModal(sujet)"><i class="bx bx-edit me-2"></i>Edit</a>
+                                                            <a href="javascript:void(0);"(click)="openDeleteModal(sujet)"><i class="bx bx-trash me-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Course Grid -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>	
+            <!-- /Instructor Courses -->
+            
+        </div>
+    </div>
+</div>	
+<!-- /Page Content -->
+
+<!-- Modal d'ajout -->
+<div class="modal fade" id="addSujetModal" tabindex="-1" aria-labelledby="addSujetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSujetModalLabel">Ajouter un Nouveau Sujet PFE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form *ngIf="newSujet">
+                    <div class="mb-3">
+                        <label for="titre" class="form-label">Titre</label>
+                        <input type="text" class="form-control" id="titre" [(ngModel)]="newSujet.titre" name="titre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" rows="3" [(ngModel)]="newSujet.description" name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="technologie" class="form-label">Technologie</label>
+                        <input type="text" class="form-control" id="technologie" [(ngModel)]="newSujet.technologie" name="technologie">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Importer une image</label>
+                        <input type="file" class="form-control" id="image" accept="image/*" (change)="onFileSelectedAjout($event)">
+                        <img *ngIf="newSujet.image" [src]="'/../../../../assets/img/sujetpfe/' + newSujet.image" alt="Aperçu de l'image" class="img-thumbnail mt-2">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="moderator" class="form-label">Modérateur</label>
+                        <select class="form-control" id="moderator" [(ngModel)]="newSujet.moderator" name="moderator">
+                          <option *ngFor="let moderator of moderators" [ngValue]="moderator">{{ moderator.name }}</option>
+                        </select>
+                      </div>
+                      
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" (click)="addSujet()">Ajouter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+<!-- MODAL MODIFICATION -->
+<div class="modal fade" id="editSujetModal" tabindex="-1" aria-labelledby="editSujetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editSujetModalLabel">Modifier le Sujet PFE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form *ngIf="selectedSujet">
+            <div class="mb-3">
+              <label for="titre" class="form-label">Titre</label>
+              <input type="text" class="form-control" id="titre" [(ngModel)]="selectedSujet.titre" name="titre">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" rows="3" [(ngModel)]="selectedSujet.description" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="technologie" class="form-label">Technologie</label>
+              <input type="text" class="form-control" id="technologie" [(ngModel)]="selectedSujet.technologie" name="technologie">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Importer une image</label>
+                <input type="file" class="form-control" id="image" accept="image/*" (change)="onFileSelected($event)">
+                <img *ngIf="selectedSujet.image" [src]="'/../../../../assets/img/sujetpfe/' + selectedSujet.image" alt="Aperçu de l'image" class="img-thumbnail mt-2">
+            </div>
+            <div class="mb-3">
+                <label for="moderator" class="form-label">Modérateur</label>
+                <select class="form-control" id="moderator" [(ngModel)]="selectedSujet.moderator" name="moderator">
+                  <option *ngFor="let moderator of moderators" [ngValue]="moderator">{{ moderator.name }}</option>
+                </select>
+              </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" (click)="updateSujet()">Sauvegarder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modale de confirmation -->
+<div class="modal fade" id="deleteSujetModal" tabindex="-1" aria-labelledby="deleteSujetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteSujetModalLabel">Confirmer la suppression</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Voulez-vous vraiment supprimer ce sujet ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" (click)="deleteSujet()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>

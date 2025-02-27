@@ -1,0 +1,117 @@
+<!-- Page Content -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+
+            <!-- sidebar -->
+            <app-student-sidebar class="col-xl-3 col-lg-3 theiaStickySidebar"></app-student-sidebar>
+            <!-- /Sidebar -->
+
+            <!-- Student Courses -->
+            <div class="col-xl-9 col-lg-9">
+
+                <div class="settings-widget card-info">
+                    <div class="settings-menu p-0">
+                        <div class="profile-heading">
+                            <h3>Les sujets PFE</h3>
+                        </div>
+                        <div class="checkout-form pb-0">
+                            <div class="wishlist-tab">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" class="active" data-bs-toggle="tab"
+                                            data-bs-target="#enroll-courses">Tous les projets</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" data-bs-toggle="tab"
+                                            data-bs-target="#active-courses" (click)="loadProjetsPostules()">Projets postulés</a>
+                                    </li>                                    
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" data-bs-toggle="tab"
+                                            data-bs-target="#complete-courses" (click)="loadProjetsAffectes()">Projets affectés</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="enroll-courses">
+                                    <div class="row">
+
+                                        <!-- Course Grid -->
+                                        <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of sujets">
+                                            <div class="course-box flex-fill">
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <a >
+                                                            <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3 class="title instructor-text"><a> {{sujet.titre}}</a></h3>
+                                                        <div class="course-info d-flex align-items-center">    
+                                                        </div>
+                                                        <div class="course-edit-btn d-flex align-items-center justify-content-between">
+                                                            <a href="javascript:void(0);" class="postuler-btn" (click)="postuler(sujet)"><i class="bx bx-edit me-2"></i>Postuler</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Course Grid -->
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="active-courses">
+                                    <div class="row">
+                                        <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of projetsPostules">
+                                            <div class="course-box flex-fill">
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <a>
+                                                            <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3 class="title instructor-text"><a> {{ sujet.titre }}</a></h3>
+                                                        <div class="course-info d-flex align-items-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="complete-courses">
+                                    <div class="row">
+                                        <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of projetsAffectes">
+                                            <div class="course-box flex-fill">
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <a>
+                                                            <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h3 class="title instructor-text"><a> {{ sujet.titre }}</a></h3>
+                                                        <div class="course-info d-flex align-items-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <!-- /Student Courses -->
+
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

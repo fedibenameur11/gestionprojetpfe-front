@@ -1,0 +1,88 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper log-wrap">
+  <div class="row">
+    <!-- Login Banner -->
+    <div class="col-md-6 login-bg">
+      <div class="row w-100">
+        <div class="col-md-12">
+          <owl-carousel-o [options]="registerOwlOptions">
+            <ng-container *ngFor="let slide of register">
+              <ng-template carouselSlide>
+                <div class="welcome-login">
+                  <div class="login-banner">
+                    <img [src]="slide.img" class="img-fluid" alt="Logo" />
+                  </div>
+                  <div class="mentor-course text-center">
+                    <p class="welcome-text">Welcome to Coding Factory</p>
+                  </div>
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+    <!-- /Login Banner -->
+
+    <div class="col-md-6 login-wrap-bg">
+      <div class="login-wrapper">
+        <div class="loginbox">
+          <div class="img-logo">
+            <img src="assets/img/logo.png" class="img-fluid" alt="Logo" />
+            <div class="back-home">
+              <a [routerLink]="routes.home">Back to Home</a>
+            </div>
+          </div>
+          <h1>Sign up</h1>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="input-block">
+              <label class="form-control-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+
+            <div class="input-block">
+              <label class="form-control-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" />
+            </div>
+
+            <div class="input-block">
+              <label class="form-control-label">Password</label>
+              <div class="pass-group">
+                <input [type]="passwordType" class="form-control pass-input" formControlName="password"
+                  (input)="onChangePassword(registerForm.value.password)" />
+                <i class="toggle-password feather" [ngClass]="{'icon-eye': showPassword, 'icon-eye-off': !showPassword}"
+                   (click)="togglePassword()"></i>
+              </div>
+            </div>
+
+            <div class="input-block">
+              <label class="form-control-label">City</label>
+              <input type="text" class="form-control" formControlName="city" />
+            </div>
+
+            <div class="input-block">
+              <label class="form-control-label">Phone Number</label>
+              <input type="text" class="form-control" formControlName="numTel" />
+            </div>
+
+            <div class="input-block">
+              <label class="form-control-label">CIN</label>
+              <input type="text" class="form-control" formControlName="cin" />
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-start" type="submit" [disabled]="registerForm.invalid || loading">
+                Create Account
+              </button>
+            </div>
+          </form>
+
+          <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
