@@ -4480,7 +4480,7 @@ export class DataService {
           subMenus: [],
         },
         {
-          menuValue: 'My Course',
+          menuValue: 'Sujets PFE',
           route: routes.list_sujet,
           hasSubRoute: false,
           showSubRoute: false,
@@ -4650,8 +4650,8 @@ export class DataService {
           subMenus: [],
         },
         {
-          menuValue: 'Enrolled Courses',
-          route: routes.studentCourses,
+          menuValue: 'Sujets PFE',
+          route: routes.sujetpfe_user, 
           hasSubRoute: false,
           showSubRoute: false,
           base: 'student',

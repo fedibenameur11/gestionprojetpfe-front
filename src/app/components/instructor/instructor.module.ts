@@ -22,7 +22,7 @@ import { InstructorEditComponent } from './instructor-edit/instructor-edit.compo
 import { InstructorChatComponent } from './instructor-chat/instructor-chat.component';
 import { InstructorEarningsComponent } from './instructor-earnings/instructor-earnings.component';
 import { InstructorDashboardComponent } from './instructor-dashboard/instructor-dashboard.component';
-import { InstructorCourseComponent } from './instructor-course/instructor-course.component';
+import { SujetpfeBackofficeComponent } from './sujetpfe-backoffice/sujetpfe-backoffice.component';
 import { RouterModule } from '@angular/router';
 import { InstructorQuizDetailsComponent } from './instructor-quiz-details/instructor-quiz-details.component';
 import { InstructorEnrolledCourseComponent } from './instructor-enrolled-course/instructor-enrolled-course.component';
@@ -49,7 +49,7 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     InstructorChatComponent,
     InstructorEarningsComponent,
     InstructorDashboardComponent,
-    InstructorCourseComponent,
+    SujetpfeBackofficeComponent,
     InstructorQuizDetailsComponent,
     InstructorEnrolledCourseComponent,
   ],

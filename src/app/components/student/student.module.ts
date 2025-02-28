@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { StudentQaComponent } from './student-qa/student-qa.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentWishlistComponent } from './student-wishlist/student-wishlist.component';
-import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { SujetpfeFrontoffice } from './sujetpfe-frontoffice/sujetpfe-frontoffice.component';
 import { StudentQuizComponent } from './student-quiz/student-quiz.component';
 import { StudentReviewsComponent } from './student-reviews/student-reviews.component';
 import { StudentReferralComponent } from './student-referral/student-referral.component';
@@ -31,7 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StudentOrderHistoryComponent,
     StudentQaComponent,
     StudentProfileComponent,
-    StudentCoursesComponent,
+    SujetpfeFrontoffice,
     StudentQuizComponent,
     StudentWishlistComponent,
     StudentReviewsComponent,

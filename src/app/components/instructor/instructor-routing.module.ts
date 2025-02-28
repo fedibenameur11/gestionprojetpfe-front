@@ -14,7 +14,7 @@ import { InstructorReferralComponent } from './instructor-referral/instructor-re
 import { InstructorTicketsComponent } from './instructor-tickets/instructor-tickets.component';
 import { InstructorOrdersComponent } from './instructor-orders/instructor-orders.component';
 import { InstructorChatComponent } from './instructor-chat/instructor-chat.component';
-import { InstructorCourseComponent } from './instructor-course/instructor-course.component';
+import { SujetpfeBackofficeComponent } from './sujetpfe-backoffice/sujetpfe-backoffice.component';
 import { InstructorDashboardComponent } from './instructor-dashboard/instructor-dashboard.component';
 import { InstructorEarningsComponent } from './instructor-earnings/instructor-earnings.component';
 import { InstructorNotificationComponent } from './instructor-notification/instructor-notification.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'list-sujet',
-        component: InstructorCourseComponent,
+        component: SujetpfeBackofficeComponent,
       },
       {
         path: 'instructor-dashboard',

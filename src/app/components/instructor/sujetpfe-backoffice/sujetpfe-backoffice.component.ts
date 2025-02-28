@@ -10,10 +10,10 @@ import { OuruserService } from 'src/app/shared/service/ouruser/ouruser.service';
 declare var bootstrap: any; 
 @Component({
   selector: 'app-instructor-course',
-  templateUrl: './instructor-course.component.html',
-  styleUrls: ['./instructor-course.component.scss'],
+  templateUrl: './sujetpfe-backoffice.component.html',
+  styleUrls: ['./sujetpfe-backoffice.component.scss'],
 })
-export class InstructorCourseComponent implements OnInit {
+export class SujetpfeBackofficeComponent implements OnInit {
   sujets: SujetPfe[] = [];  // Liste des sujets
   selectedSujet!: SujetPfe; // Sujet en cours d'édition
   selectedImage: string | ArrayBuffer | null = null;

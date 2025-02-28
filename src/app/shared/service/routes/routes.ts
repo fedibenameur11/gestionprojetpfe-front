@@ -241,7 +241,7 @@ export class routes {
     return this.students + 'student-wishlist';
   }
   public static get studentCourses(): string {
-    return this.students + 'student-courses';
+    return this.students + 'sujetpfe-frontoffice';
   }
   public static get studentReviews(): string {
     return this.students + 'student-reviews';

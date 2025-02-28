@@ -7,12 +7,12 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 declare var bootstrap: any; 
 @Component({
-  selector: 'app-student-courses',
+  selector: 'app-sujetpfe-frontoffice',
   
-  templateUrl: './student-courses.component.html',
-  styleUrl: './student-courses.component.scss'
+  templateUrl: './sujetpfe-frontoffice.component.html',
+  styleUrl: './sujetpfe-frontoffice.component.scss'
 })
-export class StudentCoursesComponent implements OnInit{
+export class SujetpfeFrontoffice implements OnInit{
 
   sujets: SujetPfe[] = [];  // Liste des sujets
   userId: number = 3; // ID de l'utilisateur connecté
@@ -128,10 +128,11 @@ export class StudentCoursesComponent implements OnInit{
               toastClass: 'toast-success-custom' // Vous pouvez personnaliser la classe CSS pour la réussite
             });
   
+            // Récupérer le modal et le fermer après le dépôt du rapport
             const modal = document.getElementById("deposerRapportModal");
             if (modal) {
-              const bootstrapModal = new bootstrap.Modal(modal);
-              bootstrapModal.hide();
+              const bootstrapModal = bootstrap.Modal.getInstance(modal); // Utiliser getInstance pour récupérer l'instance existante
+              bootstrapModal.hide(); // Fermer le modal
             }
           } else if (response.error) {
             this.toastr.error(response.error, 'Erreur', {
@@ -154,6 +155,7 @@ export class StudentCoursesComponent implements OnInit{
       });
     }
   }
+  
   
   
 
