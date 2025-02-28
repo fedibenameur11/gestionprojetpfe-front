@@ -28,8 +28,8 @@ export class routes {
   public static get instructor_grid(): string {
     return this.instructor + 'instructor-view/instructor-grid';
   }
-  public static get instructor_course(): string {
-    return this.instructor + 'instructor-course';
+  public static get list_sujet(): string {
+    return this.instructor + 'list-sujet';
   }
   public static get instructor_reviews(): string {
     return this.instructor + 'instructor-reviews';
@@ -250,8 +250,8 @@ export class routes {
   public static get studentChangePassword(): string {
     return this.students + 'settings/student-change-password';
   }
-  public static get studentProfile(): string {
-    return this.students + 'student-profile';
+  public static get sujetpfe_user(): string {
+    return this.students + 'sujetpfe-user';
   }
   public static get studentMessages(): string {
     return this.students + 'student-message';

@@ -52,6 +52,10 @@
                                                         </div>
                                                         <div class="course-edit-btn d-flex align-items-center justify-content-between">
                                                             <a href="javascript:void(0);" class="postuler-btn" (click)="postuler(sujet)"><i class="bx bx-edit me-2"></i>Postuler</a>
+                                                            <a href="javascript:void(0);" (click)="ouvrirDetails(sujet)" data-bs-toggle="modal" data-bs-target="#detailSujetModal">
+                                                                <i class="bx bx-detail me-2"></i>Détails
+                                                            </a>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,10 +75,20 @@
                                                             <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
                                                         </a>
                                                     </div>
+
                                                     <div class="product-content">
-                                                        <h3 class="title instructor-text"><a> {{ sujet.titre }}</a></h3>
-                                                        <div class="course-info d-flex align-items-center"></div>
+                                                        <h3 class="title instructor-text"><a> {{sujet.titre}}</a></h3>
+                                                        <div class="course-info d-flex align-items-center">    
+                                                        </div>
+                                                        <div class="course-edit-btn d-flex align-items-center justify-content-between">
+                                                            <a href="javascript:void(0);" (click)="ouvrirDetails(sujet)" data-bs-toggle="modal" data-bs-target="#detailSujetModal">
+                                                                <i class="bx bx-detail me-2"></i>Détails
+                                                            </a>
+                                                            
+                                                        </div>
                                                     </div>
+
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -91,10 +105,20 @@
                                                             <img class="img-fluid" alt="Img" [src]="'/../../../../assets/img/sujetpfe/' + sujet.image">
                                                         </a>
                                                     </div>
+
                                                     <div class="product-content">
-                                                        <h3 class="title instructor-text"><a> {{ sujet.titre }}</a></h3>
-                                                        <div class="course-info d-flex align-items-center"></div>
+                                                        <h3 class="title instructor-text"><a> {{sujet.titre}}</a></h3>
+                                                        <div class="course-info d-flex align-items-center">    
+                                                        </div>
+                                                        <div class="course-edit-btn d-flex align-items-center justify-content-between">
+                                                            <a href="javascript:void(0);" class="deposer-btn" (click)="ouvrirDeposerRapportModal(sujet)"><i class="bx bx-edit me-2"></i>Déposer rapport</a>
+                                                            <a href="javascript:void(0);" (click)="ouvrirDetails(sujet)" data-bs-toggle="modal" data-bs-target="#detailSujetModal">
+                                                                <i class="bx bx-detail me-2"></i>Détails
+                                                            </a>
+                                                            
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -115,3 +139,54 @@
     </div>
 </div>
 <!-- /Page Content -->
+
+<!-- MODAL DETAIL -->
+<div class="modal fade" id="detailSujetModal" tabindex="-1" aria-labelledby="detailSujetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailSujetModalLabel">Détails du Sujet PFE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="selectedSujet">
+                    <p><strong>Titre:</strong> {{ selectedSujet.titre }}</p>
+                    <p><strong>Description:</strong> {{ selectedSujet.description }}</p>
+                    <p><strong>Technologie:</strong> {{ selectedSujet.technologie }}</p>
+                    <p><strong>Modérateur:</strong> {{ selectedSujet.moderator?.name || 'Aucun modérateur' }}</p>
+                    <img *ngIf="selectedSujet.image" [src]="'/../../../../assets/img/sujetpfe/' + selectedSujet.image" alt="Image du Sujet" class="img-thumbnail">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <!-- Ajout d'un bouton de sauvegarde si vous voulez modifier le sujet -->
+                <button type="button" class="btn btn-primary postuler-btn" *ngIf="selectedSujet" (click)="postuler(selectedSujet)">Postuler</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MODAL DETAIL -->
+
+
+<!-- Modal pour déposer un rapport -->
+<div class="modal fade" id="deposerRapportModal" tabindex="-1" aria-labelledby="deposerRapportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deposerRapportModalLabel">Déposer Rapport</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="rapportFile" class="form-label">Sélectionnez un rapport (PDF)</label>
+                <input type="file" class="form-control" id="rapportFile" accept=".pdf" (change)="onFileSelected($event)">
+                <div *ngIf="selectedFileName" class="mt-2">
+                    📄 Rapport sélectionné : <strong>{{ selectedFileName }}</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" (click)="uploadRapport()">Déposer</button>
+            </div>
+        </div>
+    </div>
+</div>

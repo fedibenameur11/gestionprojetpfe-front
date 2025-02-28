@@ -75,6 +75,12 @@ export class SujetPfeService {
     return this.http.get<SujetPfe[]>(`${this.baseUrl}/sujets-non-postules/${userId}`);
   }
   
+  uploadRapport(sujetPfeId: number, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+  
+    return this.http.post(`${this.baseUrl}/${sujetPfeId}/upload`, formData);
+  }
   
   
 }

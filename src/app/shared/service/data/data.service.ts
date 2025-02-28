@@ -4481,11 +4481,11 @@ export class DataService {
         },
         {
           menuValue: 'My Course',
-          route: routes.instructor_course,
+          route: routes.list_sujet,
           hasSubRoute: false,
           showSubRoute: false,
           base: 'instructor',
-          page: 'instructor-course',
+          page: 'list-sujet',
           last: '',
           subMenus: [],
         },
@@ -5043,7 +5043,7 @@ export class DataService {
         },
         {
           menuValue: 'My Courses',
-          route: routes.instructor_course,
+          route: routes.list_sujet,
           icon: 'book',
           base: 'instructor-course',
           subMenus: [],

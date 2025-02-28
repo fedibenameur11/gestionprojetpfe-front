@@ -44,7 +44,7 @@ const routes: Routes = [
         component: StudentOrderHistoryComponent,
       },
       { path: 'student-wishlist', component: StudentWishlistComponent },
-      { path: 'student-courses', component: StudentCoursesComponent },
+      { path: 'sujetpfe-user', component: StudentCoursesComponent },
       { path: 'student-quiz-details', component: StudentQuizDetailsComponent },
       { path: 'student-reviews', component: StudentReviewsComponent },
       { path: 'student-referral', component: StudentReferralComponent },
