@@ -33,7 +33,7 @@ const routes: Routes = [
         component: InstructorChatComponent,
       },
       {
-        path: 'instructor-course',
+        path: 'list-sujet',
         component: InstructorCourseComponent,
       },
       {
@@ -53,7 +53,7 @@ const routes: Routes = [
         component: InstructorOrdersComponent,
       },
       {
-        path: 'instructor-profile',
+        path: 'sujet-details/:id',
         component: InstructorProfileComponent,
       },
       {

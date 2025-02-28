@@ -176,12 +176,4 @@ export class InstructorCourseComponent implements OnInit {
     });
   }
 
-
-
-
-  
-  
-
-
-
 }

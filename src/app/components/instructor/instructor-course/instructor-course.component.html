@@ -13,8 +13,9 @@
                 <div class="settings-widget card-info">
                     <div class="settings-menu p-0">
                         <div class="profile-heading">
-                            <h3>Liste des sujets PFE</h3>
-                            <p>okkkk</p>
+                            <h3>Gestion des sujets PFE</h3>
+                            <br>
+                            <br>
                             <button type="button" class="btn btn-primary" (click)="openAddModal()">Ajouter un Sujet PFE</button>
                         </div>
                         <div class="checkout-form pb-0">
@@ -38,8 +39,9 @@
                                                         <div class="course-info d-flex align-items-center">    
                                                         </div>
                                                         <div class="course-edit-btn d-flex align-items-center justify-content-between">
-                                                            <a href="javascript:void(0);" (click)="openEditModal(sujet)"><i class="bx bx-edit me-2"></i>Edit</a>
-                                                            <a href="javascript:void(0);"(click)="openDeleteModal(sujet)"><i class="bx bx-trash me-2"></i>Delete</a>
+                                                            <a href="javascript:void(0);" (click)="openEditModal(sujet)"><i class="bx bx-edit me-2"></i>Modifier</a>
+                                                            <a href="javascript:void(0);" [routerLink]="['/instructor', 'sujet-details',sujet.id]"><i class="bx bx-detail me-2"></i>Détails</a>
+                                                            <a href="javascript:void(0);"(click)="openDeleteModal(sujet)"><i class="bx bx-trash me-2"></i>Supprimer</a>
                                                         </div>
                                                     </div>
                                                 </div>
