@@ -156,6 +156,7 @@ export class SujetpfeBackofficeComponent implements OnInit {
   addSujet() {
     this.sujetPfeService.ajouterSujet(this.newSujet).subscribe((sujetAjoute) => {
       // sujetAjoute contient le sujet nouvellement ajouté avec son ID
+      console.log("this sujet id :",sujetAjoute.id)
       if (this.newSujet.moderator && sujetAjoute.id) {
         this.sujetPfeService.affecterModerateur(sujetAjoute.id, this.newSujet.moderator.id)
           .subscribe(() => {

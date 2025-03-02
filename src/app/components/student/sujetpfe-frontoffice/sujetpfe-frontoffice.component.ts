@@ -36,12 +36,7 @@ export class SujetpfeFrontoffice implements OnInit{
       this.loadSujetsNonPostules();
     }
     
-    loadSujetsNonPostules(): void {
-      this.sujetPfeService.getSujetsNonPostules(this.userId).subscribe((data) => {
-        this.sujets = data;
-        this.sujetsNonPostulesOriginal = [...data]; // Stocker une copie originale pour éviter les problèmes de filtrage
-      });
-    }
+    
 
     postuler(sujet: SujetPfe): void {
       if (sujet.id) {
@@ -66,19 +61,7 @@ export class SujetpfeFrontoffice implements OnInit{
       this.loadSujetsNonPostules();
     }
 
-    loadProjetsPostules(): void {
-      this.sujetPfeService.getProjetsPostules(this.userId).subscribe((data) => {
-        this.projetsPostules = data;
-        this.sujetsPostulesOriginal = [...data];
-      });
-    }
-
-    loadProjetsAffectes(): void {
-      this.sujetPfeService.getProjetsAffectes(this.userId).subscribe((data) => {
-        this.projetsAffectes = data;
-        this.sujetsAffectesOriginal = [...data];
-      });
-    }
+    
 
     ouvrirDetails(sujet: SujetPfe): void {
       this.selectedSujet = sujet;
@@ -167,18 +150,32 @@ export class SujetpfeFrontoffice implements OnInit{
     filtrerSujets(): void {
       const termeRecherche = this.searchTerm.toLowerCase();
     
+      // Réinitialiser les listes avant de filtrer
       if (this.activeTab === "sujets-nonpostules") {
-        this.sujets = this.sujetsNonPostulesOriginal.filter(sujet => sujet.titre.toLowerCase().includes(termeRecherche));
+        this.sujets = [...this.sujetsNonPostulesOriginal];
+        this.sujets = this.sujets.filter(sujet => 
+          sujet.titre && sujet.titre.toLowerCase().includes(termeRecherche) // Vérifier que sujet.titre existe
+        );
+        console.log("Sujets non postulés filtrés :", this.sujets); // Log pour déboguer
       } else if (this.activeTab === "sujets-postules") {
-        this.projetsPostules = this.sujetsPostulesOriginal.filter(sujet => sujet.titre.toLowerCase().includes(termeRecherche));
+        this.projetsPostules = [...this.sujetsPostulesOriginal];
+        this.projetsPostules = this.projetsPostules.filter(sujet => 
+          sujet.titre && sujet.titre.toLowerCase().includes(termeRecherche) // Vérifier que sujet.titre existe
+        );
+        console.log("Sujets postulés filtrés :", this.projetsPostules); // Log pour déboguer
       } else if (this.activeTab === "sujets-affectes") {
-        this.projetsAffectes = this.sujetsAffectesOriginal.filter(sujet => sujet.titre.toLowerCase().includes(termeRecherche));
+        this.projetsAffectes = [...this.sujetsAffectesOriginal];
+        this.projetsAffectes = this.projetsAffectes.filter(sujet => 
+          sujet.titre && sujet.titre.toLowerCase().includes(termeRecherche) // Vérifier que sujet.titre existe
+        );
+        console.log("Sujets affectés filtrés :", this.projetsAffectes); // Log pour déboguer
       }
     }
     
     onTabChange(tabId: string): void {
+      console.log("Onglet actif :", tabId); // Vérifiez la valeur de tabId
       this.activeTab = tabId;
-      this.searchTerm = ""; // Réinitialiser le terme de recherche lors du changement d'onglet
+      this.searchTerm = ""; // Réinitialiser le terme de recherche
     
       if (tabId === "sujets-nonpostules") {
         this.loadSujetsNonPostules();
@@ -187,5 +184,29 @@ export class SujetpfeFrontoffice implements OnInit{
       } else if (tabId === "sujets-affectes") {
         this.loadProjetsAffectes();
       }
+    }
+
+    loadSujetsNonPostules(): void {
+      this.sujetPfeService.getSujetsNonPostules(this.userId).subscribe((data) => {
+        this.sujets = data;
+        this.sujetsNonPostulesOriginal = [...data];
+        console.log("Sujets non postulés chargés :", this.sujetsNonPostulesOriginal); // Log pour déboguer
+      });
+    }
+    
+    loadProjetsPostules(): void {
+      this.sujetPfeService.getProjetsPostules(this.userId).subscribe((data) => {
+        this.projetsPostules = data;
+        this.sujetsPostulesOriginal = [...data];
+        console.log("Sujets postulés chargés :", this.sujetsPostulesOriginal); // Log pour déboguer
+      });
+    }
+    
+    loadProjetsAffectes(): void {
+      this.sujetPfeService.getProjetsAffectes(this.userId).subscribe((data) => {
+        this.projetsAffectes = data;
+        this.sujetsAffectesOriginal = [...data];
+        console.log("Sujets affectés chargés :", this.sujetsAffectesOriginal); // Log pour déboguer
+      });
     }
   }

@@ -16,9 +16,10 @@
                             <h3>Les sujets PFE</h3>
                             <br>
                             <div class="search-bar mb-3 d-flex align-items-center">
-                                <input type="text" class="form-control w-50 me-2" placeholder="Rechercher un sujet..." [(ngModel)]="searchTerm">
+                                <input type="text" class="form-control w-50 me-2" placeholder="Rechercher un sujet..." 
+                                       [(ngModel)]="searchTerm" (ngModelChange)="filtrerSujets()">
                                 <button class="btn btn-primary" (click)="filtrerSujets()">Rechercher</button>
-                            </div>
+                              </div>
                             
                             
                             
