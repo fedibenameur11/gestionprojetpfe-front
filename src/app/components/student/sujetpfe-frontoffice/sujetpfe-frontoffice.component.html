@@ -7,37 +7,44 @@
             <app-student-sidebar class="col-xl-3 col-lg-3 theiaStickySidebar"></app-student-sidebar>
             <!-- /Sidebar -->
 
-            <!-- Student Courses -->
+            <!-- Sujets PFE -->
             <div class="col-xl-9 col-lg-9">
 
                 <div class="settings-widget card-info">
                     <div class="settings-menu p-0">
                         <div class="profile-heading">
                             <h3>Les sujets PFE</h3>
+                            <br>
+                            <div class="search-bar mb-3 d-flex align-items-center">
+                                <input type="text" class="form-control w-50 me-2" placeholder="Rechercher un sujet..." [(ngModel)]="searchTerm">
+                                <button class="btn btn-primary" (click)="filtrerSujets()">Rechercher</button>
+                            </div>
+                            
+                            
+                            
                         </div>
                         <div class="checkout-form pb-0">
                             <div class="wishlist-tab">
                                 <ul class="nav">
                                     <li class="nav-item">
                                         <a href="javascript:void(0);" class="active" data-bs-toggle="tab"
-                                            data-bs-target="#enroll-courses">Tous les projets</a>
+                                            data-bs-target="#sujets-nonpostules" (click)="onTabChange('sujets-nonpostules')">Tous les projets</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="javascript:void(0);" data-bs-toggle="tab"
-                                            data-bs-target="#active-courses" (click)="loadProjetsPostules()">Projets postulés</a>
+                                            data-bs-target="#sujets-postules" (click)="onTabChange('sujets-postules')">Projets postulés</a>
                                     </li>                                    
                                     <li class="nav-item">
                                         <a href="javascript:void(0);" data-bs-toggle="tab"
-                                            data-bs-target="#complete-courses" (click)="loadProjetsAffectes()">Projets affectés</a>
+                                            data-bs-target="#sujets-affectes" (click)="onTabChange('sujets-affectes')">Projets affectés</a>
                                     </li>
                                 </ul>
                             </div>
 
                             <div class="tab-content">
-                                <div class="tab-pane fade show active" id="enroll-courses">
+                                <!-- Projets non postules -->
+                                <div class="tab-pane fade show active" id="sujets-nonpostules">
                                     <div class="row">
-
-                                        <!-- Course Grid -->
                                         <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of sujets">
                                             <div class="course-box flex-fill">
                                                 <div class="product">
@@ -61,11 +68,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- /Course Grid -->
-
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="active-courses">
+                                <!--/Projets non postules-->
+
+                                <!--Projets postulés-->
+                                <div class="tab-pane fade" id="sujets-postules">
                                     <div class="row">
                                         <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of projetsPostules">
                                             <div class="course-box flex-fill">
@@ -94,8 +102,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="tab-pane fade" id="complete-courses">
+                                <!--/Projets postulés-->
+
+                                <!-- Projets affectés -->
+                                <div class="tab-pane fade" id="sujets-affectes">
                                     <div class="row">
                                         <div class="col-xxl-4 col-md-6 d-flex" *ngFor="let sujet of projetsAffectes">
                                             <div class="course-box flex-fill">
@@ -124,16 +134,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- /Projets affectés -->
                                 
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
-
             </div>
-            <!-- /Student Courses -->
+            <!-- /Sujets PFE -->
 
         </div>
     </div>

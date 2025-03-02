@@ -7,8 +7,8 @@ export interface SujetPfe {
     technologie: string;
     image?: string;
     demandeStatus: DemandeStatus;
-    moderator: OurUsers | null;  // Accepter null
-    userAttribue: OurUsers | null;  // Accepter null
+    moderator: OurUsers | null;
+    userAttribue: OurUsers | null; 
     demandeurs: OurUsers[];
 }
 

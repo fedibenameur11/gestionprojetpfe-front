@@ -133,6 +133,7 @@ export class SujetpfeBackofficeComponent implements OnInit {
     }
     
   }
+  
   openAddModal() {
     // Réinitialiser l'objet pour éviter de pré-remplir les champs
     this.newSujet = {
