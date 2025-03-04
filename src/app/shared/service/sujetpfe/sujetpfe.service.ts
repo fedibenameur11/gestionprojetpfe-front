@@ -81,6 +81,9 @@ export class SujetPfeService {
   
     return this.http.post(`${this.baseUrl}/${sujetPfeId}/upload`, formData);
   }
+  getSujetsByModerator(moderatorId: number): Observable<SujetPfe[]> {
+    return this.http.get<SujetPfe[]>(`${this.baseUrl}/moderateur/${moderatorId}`);
+  }
   
   
 }

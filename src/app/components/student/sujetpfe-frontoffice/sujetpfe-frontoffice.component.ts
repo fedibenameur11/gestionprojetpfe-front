@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 declare var bootstrap: any; 
 @Component({
   selector: 'app-sujetpfe-frontoffice',
-  
   templateUrl: './sujetpfe-frontoffice.component.html',
   styleUrl: './sujetpfe-frontoffice.component.scss'
 })

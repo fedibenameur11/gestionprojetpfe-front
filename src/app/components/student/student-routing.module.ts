@@ -6,7 +6,7 @@ import { StudentMessageComponent } from './student-message/student-message.compo
 import { StudentQaComponent } from './student-qa/student-qa.component';
 import { StudentQuizComponent } from './student-quiz/student-quiz.component';
 import { StudentOrderHistoryComponent } from './student-order-history/student-order-history.component';
-import { StudentWishlistComponent } from './student-wishlist/student-wishlist.component';
+import { ListsujetsModeratorComponent } from './listsujets-moderator/listsujets-moderator.component';
 import { SujetpfeFrontoffice } from './sujetpfe-frontoffice/sujetpfe-frontoffice.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'student-order-history',
         component: StudentOrderHistoryComponent,
       },
-      { path: 'student-wishlist', component: StudentWishlistComponent },
+      { path: 'listsujets-moderator', component: ListsujetsModeratorComponent },
       { path: 'sujetpfe-user', component: SujetpfeFrontoffice },
       { path: 'student-quiz-details', component: StudentQuizDetailsComponent },
       { path: 'student-reviews', component: StudentReviewsComponent },

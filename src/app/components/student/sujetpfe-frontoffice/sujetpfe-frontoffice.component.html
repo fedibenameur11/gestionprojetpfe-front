@@ -90,7 +90,7 @@
                                                         <div class="course-info d-flex align-items-center">    
                                                         </div>
                                                         <div class="course-edit-btn d-flex align-items-center justify-content-between">
-                                                            <a href="javascript:void(0);" (click)="ouvrirDetails(sujet)" data-bs-toggle="modal" data-bs-target="#detailSujetModal">
+                                                            <a href="javascript:void(0);" (click)="ouvrirDetails(sujet)" data-bs-toggle="modal" data-bs-target="#detailSujetModal2">
                                                                 <i class="bx bx-detail me-2"></i>Détails
                                                             </a>
                                                             
@@ -176,6 +176,31 @@
 </div>
 <!-- /MODAL DETAIL -->
 
+<!-- MODAL DETAIL 2-->
+<div class="modal fade" id="detailSujetModal2" tabindex="-1" aria-labelledby="detailSujetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailSujetModalLabel">Détails du Sujet PFE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="selectedSujet">
+                    <p><strong>Titre:</strong> {{ selectedSujet.titre }}</p>
+                    <p><strong>Description:</strong> {{ selectedSujet.description }}</p>
+                    <p><strong>Technologie:</strong> {{ selectedSujet.technologie }}</p>
+                    <p><strong>Modérateur:</strong> {{ selectedSujet.moderator?.name || 'Aucun modérateur' }}</p>
+                    <img *ngIf="selectedSujet.image" [src]="'/../../../../assets/img/sujetpfe/' + selectedSujet.image" alt="Image du Sujet" class="img-thumbnail">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <!-- Ajout d'un bouton de sauvegarde si vous voulez modifier le sujet -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MODAL DETAIL 2-->
 
 <!-- Modal pour déposer un rapport -->
 <div class="modal fade" id="deposerRapportModal" tabindex="-1" aria-labelledby="deposerRapportModalLabel" aria-hidden="true">

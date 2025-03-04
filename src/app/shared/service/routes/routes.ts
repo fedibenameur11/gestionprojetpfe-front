@@ -237,8 +237,8 @@ export class routes {
   public static get studentOrderHistory(): string {
     return this.students + 'student-order-history';
   }
-  public static get studentWishlist(): string {
-    return this.students + 'student-wishlist';
+  public static get listsujetsModerator(): string {
+    return this.students + 'listsujets-moderator';
   }
   public static get studentCourses(): string {
     return this.students + 'sujetpfe-frontoffice';
