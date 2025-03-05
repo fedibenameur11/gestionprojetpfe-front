@@ -14,7 +14,7 @@ declare var bootstrap: any;
 export class SujetpfeFrontoffice implements OnInit{
 
   sujets: SujetPfe[] = [];
-  userId: number = 3; // ID de l'utilisateur connecté
+  userId: number = 4; // ID de l'utilisateur connecté
   projetsPostules: SujetPfe[] = [];
   projetsAffectes: SujetPfe[] = [];  // Liste des projets affectés
   selectedSujet: SujetPfe | null = null;  // Sujet sélectionné pour afficher dans le modal
